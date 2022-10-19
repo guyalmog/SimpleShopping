@@ -1,0 +1,57 @@
+<div class="container">
+    <h1 class="mt-4">My Cart</h1>
+    <div class="container">
+        <div class=row>
+            <%- include ("partials/messages") %>
+        </div>
+    </div>
+    <% if (count> 0) { %>
+        <div class="container">
+            <table class="table table-striped alignmiddle">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity (KG)</th>
+                        <th>Subtotal</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% cart.forEach(function(item){ %>
+                        <tr class="table-light">
+                            <td>
+                                <%= item.product.product_title %>
+                            </td>
+                            <td>
+                                <%= parseFloat(item.product.price).toFixed(2) %>$
+                            </td>
+                            <td>
+                                <%= item.product.quantity %> <a
+                                        href="/cart/update&<%= item.product.product_id %>?action=dec"><i
+                                            class="fas fa-minus"></i></a>
+                                    <a href="/cart/update&<%= item.product.product_id %>?action=inc"><i
+                                            class="fas fa-plus"></i></a>
+                            </td>
+                            <td>
+                                $<%= parseFloat((item.product.quantity * item.product.price)).toFixed(2) %>
+                            </td>
+                            <td><a href="/cart/update&<%= item.product.product_id %>?action=del"><i
+                                        class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                            <tr>
+                                <td colspan="5" align="right">
+                                    <a class="btn btn-primary" href="/cart/checkout">Checkout</a>
+                            </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <% } else {%>
+            <div class="container">
+                <p class="lead mb-3">Cart is Empty!</p>
+            </div>
+            <% }%>
+</div>

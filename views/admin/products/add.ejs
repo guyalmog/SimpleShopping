@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <legend class="text-center">Add Product</legend>
+      <%- include ("../../partials/messages") %>
+        <div class="card card-body">
+          <div class="container">
+            <form action="/admin/products/add" method="POST">
+              <fieldset>
+                <div class="form-group">
+                  <label>Product ID</label>
+                  <input type="number" class="form-control" id="product_id" name="product_id"
+                    aria-describedby="product_id" placeholder="Enter ID"
+                    value="<%= typeof product_id != 'undefined' ? product_id : '' %>" />
+                  <small id="product_idHelp" class="form-text text-muted">ID must be unused</small>
+                </div>
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" class="form-control" id="product_title" name="product_title"
+                    aria-describedby="product_title" placeholder="Enter Title"
+                    value="<%= typeof product_title != 'undefined' ? product_title : '' %>" />
+                </div>
+                <div class="form-group">
+                  <label>Price</label>
+                  <input type="number" class="form-control" id="price" name="price" aria-describedby="price"
+                    placeholder="Enter Price" pattern="[0-9]+"
+                    value="<%= typeof price != 'undefined' ? price : '' %>" />
+                </div>
+                <div class="form-group">
+                  <label>Description</label>
+                  <input type="text" class="form-control" id="description" name="description"
+                    aria-describedby="description" placeholder="Enter Description"
+                    value="<%= typeof description != 'undefined' ? description : '' %>" />
+                </div>
+                <div class="form-group">
+                  <label>Picture</label>
+                  <input type="text" class="form-control" id="picture" name="picture" aria-describedby="picture"
+                    placeholder="Enter Link" value="<%= typeof picture != 'undefined' ? picture : '' %>" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a class="btn btn-danger" button type="button" href='/admin/products'>Cancel</a>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

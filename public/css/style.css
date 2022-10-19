@@ -1,0 +1,67 @@
+.my-card-img {
+    height: 15rem;
+    object-fit: cover;
+}
+
+.navLink {
+    font-size: 22px;
+}
+
+body {
+background-color: #f8f5f0;
+}
+
+.jumbotron-fluid {
+    background-image: url(../assets/images/home-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+}
+
+a.nav-link {
+    font-size: 20px;
+}
+
+.dropdown-toggle {
+color: white;
+background-color: #325d88;
+border-radius: 12px;
+}
+
+.dropdown-menu {
+    margin-right: 10px;
+}
+div.productDiv {
+    margin-bottom: 20px;
+}
+
+.adminBtn {
+    margin: 5px;
+}
+
+.addBt {
+    margin-left: 23%;
+    text-align: center;
+}
+
+form {
+    padding: 10px;
+}
+
+img.cpi {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+@media (max-width: 680px) {
+    div.home {
+        margin-top: -10px;
+        background-color: #acb98385;
+        margin: -2px;
+        color: white;
+   }
+    .addBt {
+        margin-left: 0%;
+        text-align: center;
+    }
+}

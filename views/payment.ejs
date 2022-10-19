@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="col-md-6 m-auto">
+        <h4 class="mb-3">Shipping Address</h4>
+        <form action="/user/payment/done" method="POST">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control" id="firstName">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="lastName">Last name</label>
+                    <input type="text" class="form-control" id="lastName">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" placeholder="1234 Main St">
+            </div>
+
+            <div class="mb-3">
+                <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    <label for="country">Country</label>
+                    <div class="form-control" id="product_id" name="product_id" aria-describedby="product_id"
+                        disabled="">Israel</div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="state">State</label>
+                    <select class="custom-select d-block w-100" id="state">
+                        <option value="">Choose...</option>
+                        <option>Jerusalem</option>
+                        <option>HaZafon</option>
+                        <option>Haifa</option>
+                        <option>Central</option>
+                        <option>Tel Aviv</option>
+                        <option>HaDarom</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" id="zip">
+                </div>
+            </div>
+            <hr class="mb-4">
+            <h4 class="mb-3">Credit Card</h4>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="cc-name">Name on card</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="Demo - Not needed">
+                    <small class="text-muted">Full name as displayed on card</small>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="cc-number">Credit card number</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="Demo - Not needed">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label for="cc-expiration">Expiration</label>
+                    <input type="text" class="form-control" id="cc-expiration" placeholder="Demo">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="cc-cvv">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="Demo">
+                </div>
+            </div>
+            <hr class="mb-4">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Purchase</button>
+        </form>
+    </div>
+</div>

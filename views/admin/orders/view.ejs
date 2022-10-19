@@ -1,0 +1,48 @@
+<div class="container">
+    <h1 class="mt-4"><a href='/admin'><i class="fas fa-long-arrow-alt-left"></i></a> Orders Management</h1>
+    <div class="container">
+        <div class=row>
+            <%- include ("../../partials/messages") %>
+        </div>
+    </div>
+    <% if (count> 0) { %>
+        <div class="container">
+            <table class="table table-striped alignmiddle">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th>Total Price</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% orders.forEach(function(order){ %>
+                        <tr class="table-light">
+                            <td>
+                                <%= order.email %>
+                            </td>
+                            <td>
+                                <%= order.Date %>
+                            </td>
+                            <td>
+                                $<%= parseFloat(order.total).toFixed(2) %>
+                            </td>
+                            <td>
+                                <% if (order.total !== '' ) { %>
+                                <a href="/admin/orders/del&<%= order._id %>"><i class="fas fa-trash-alt"></i></a>
+                                <% } else { %>
+                                    <i class="fas fa-trash-alt"></i>
+                                    <% } %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <% } else {%>
+            <div class="container">
+                <p class="lead mb-3">There are no existing orders.</p>
+            </div>
+            <% }%>
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+  <h1 class="mt-4"><a href='/user/orders'><i class="fas fa-long-arrow-alt-left"></i></a> Order History</h1>
+    <div class=row>
+      <%- include ("partials/messages") %>
+    </div>
+  <% if (items.length> 0) { %>
+    <div class="container">
+      <table class="table table-striped alignmiddle">
+        <thead>
+          <tr class="table-dark">
+            <th>Item</th>
+            <th>Quantity (KG)</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <% var total=0 %>
+        <tbody>
+          <% items.forEach(function(product){ %>
+            <% total +=+ parseFloat(product.subtotal) %>
+            <tr class="table-light">
+              <td>
+                <%= product.product_title %>
+              </td>
+
+              <td>
+                <%= product.quantity %>
+              </td>
+              <td>
+                <%= parseFloat(product.subtotal).toFixed(2) %>$
+              </td>
+            </tr>
+            <% }) %>
+            <tr>
+              <td colspan="3" align="right"><b>Total: </b> $<%= parseFloat(total).toFixed(2) %>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <% } else {%>
+      <div class="container">
+        <p class="lead mb-3">Nothing to Display</p>
+      </div>
+      <% }%>
+</div>

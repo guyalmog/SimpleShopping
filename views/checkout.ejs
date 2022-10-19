@@ -1,0 +1,47 @@
+<div class="container">
+    <% if (typeof cart !=="undefined" ) { %>
+        <table class="table table-striped alignmiddle">
+            <thead>
+                <tr class="table-dark">
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Quantity (KG)</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+
+            <% var total=0 %>
+                <% cart.forEach(function(item){ %>
+                    <% var sub=parseFloat(item.product.quantity * item.product.price).toFixed(2) %>
+                        <% total +=+ sub %>
+                            <tr>
+                                <td>
+                                    <%= item.product.product_title %>
+                                </td>
+                                <td>$<%= parseFloat(item.product.price).toFixed(2) %>
+                                </td>
+                                <td>
+                                    <%= item.product.quantity %>
+                                </td>
+                                <td>$<%= sub %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                                <tr>
+                                    <td colspan="6" align="right"><b>Total: </b> $<%= parseFloat(total).toFixed(2) %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" align="right">
+                                        <a class="clearcart btn btn-danger" href="/cart/clear">Clear cart</a>
+                                    </td>
+                                    <td colspan="5" align="right">
+                                        <a class="btn btn-primary" href="/user/payment&<%= user.id%>">Buy now</button>
+                                    </td>
+                                </tr>
+
+        </table>
+        <% } else {%>
+            <h1 class="mt-4">Your Cart is Empty!</h1>
+            <% }%>
+</div>

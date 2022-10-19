@@ -1,0 +1,51 @@
+<div class="container">
+    <h1 class="mt-4"><a href='/admin'><i class="fas fa-long-arrow-alt-left"></i></a> Users Management</h1>
+    <div class="container">
+        <div class=row>
+            <%- include ("../../partials/messages") %>
+        </div>
+    </div>
+    <% if (count> 0) { %>
+        <div class="container">
+            <table class="table table-striped alignmiddle">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Admin</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(user){ %>
+                        <tr class="table-light">
+                            <td>
+                                <%= user.name %>
+                            </td>
+                            <td>
+                                <%= user.email %>
+                            </td>
+                            <td>
+                                <% if(user.admin==true) { %>
+                                    <i class="fas fa-check"></i>
+                                    <% } else { %>
+                                        <i class="fas fa-times"></i>
+                                        <% } %>
+                            </td>
+                            <td>
+                                <% if(user.admin==false) { %>
+                                    <a href="/admin/users/del&<%= user._id %>">
+                                        <i class="fas fa-trash-alt"></i></a>
+                                    <% } %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <% } else {%>
+            <div class="container">
+                <p class="lead mb-3">There are no users.</p>
+            </div>
+            <% }%>
+</div>

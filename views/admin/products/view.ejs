@@ -1,0 +1,52 @@
+<div class="container">
+    <h1 class="mt-4"><a href='/admin'><i class="fas fa-long-arrow-alt-left"></i></a> Products Management <a button
+            type="button" class="btn btn-link" href='/admin/products/add'>Add Product</a></h1>
+    <div class="container">
+        <div class=row>
+            <%- include ("../../partials/messages") %>
+        </div>
+    </div>
+    <% if (count> 0) { %>
+        <div class="container">
+            <table class="table table-striped alignmiddle">
+                <thead>
+                    <tr class="table-dark">
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(function(product){ %>
+                        <tr class="table-light">
+                            <td>
+                                <%= product.product_id %>
+                            </td>
+                            <td>
+                                <%= product.product_title %>
+                            </td>
+                            <td>$<%= product.price %>
+                            </td>
+                            <td>
+                                <%= product.description %>
+                            </td>
+                            <td>
+                                <a href="/admin/products/edit&<%= product._id %>"><i class="fas fa-edit"></i></a>
+                            </td>
+                            <td>
+                                <a href="/admin/products/del&<%= product._id %>"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <% } else {%>
+            <div class="container">
+                <p class="lead mb-3">There are no products.</p>
+            </div>
+            <% }%>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+    <h1 class="mt-4">Orders History</h1>
+        <div class=row>
+            <%- include ("partials/messages") %>
+        </div>
+    <% if (count> 0) { %>
+        <div class="container">
+            <table class="table table-striped alignmiddle">
+                <thead>
+                    <tr class="table-dark">
+                        <th>Date</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% history.forEach(function(order){ %>
+                        <tr class="table-light">
+                            <td>
+                                <%= order.Date %>
+                            </td>
+                            <td>
+                                $<%= order.total %>
+                            </td>
+                            <td>
+                                <a href="/user/orders&<%= order._id %>"<i class="fas fa-eye"></i>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <% } else {%>
+            <div class="container">
+                <p class="lead mb-3">There are no orders.</p>
+            </div>
+            <% }%>
+</div>
